@@ -9,7 +9,8 @@ import { Observable, map } from 'rxjs';
 })
 export class AnimalService {
   // replace to deployed portal
-  private url = "http://localhost:8080"
+  // private url = "http://localhost:8080"
+  private url = "https://e-shepherd-server.herokuapp.com"
   constructor(private httpClient: HttpClient) { }
 
   getAnimals(): Observable<Animal[]> {

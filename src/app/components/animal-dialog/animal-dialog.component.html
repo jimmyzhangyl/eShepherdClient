@@ -1,8 +1,13 @@
 <h3>Update Form</h3>
-<p>
-    <mat-form-field appearance="fill">
-        <mat-label>Animal Name</mat-label>
-        <input matInput placeholder="Placeholder" value={{animal.name}} required>
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</p>
+<form #myForm="ngForm" (ngSubmit) = "handleFormSubmit(myForm.value)">
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Animal Name</mat-label>
+            <input matInput placeholder="Placeholder" value={{animal.name}} required>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </p>
+
+    <button type="submit">Submit</button>
+
+</form>
