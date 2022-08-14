@@ -1,0 +1,58 @@
+<div>
+    <h1 style='margin-right:0cm;margin-left:0cm;font-size:32px;font-family:"Times New Roman",serif;font-weight:bold;'>
+        Java Coding Challenge</h1>
+    <p style='margin-right:0cm;margin-left:0cm;font-size:16px;font-family:"Times New Roman",serif;margin:0cm;'>
+        As an<strong>API user</strong><br /><strong>I want to </strong>submit a batch of animal records to a RESTful
+        endpoint<br><strong>So I can</strong> update my animal maps in real-time
+    </p>
+    <img width="624" src="/assets/challenge.png" alt="challeng_img" />
+    <h2 style='margin-right:0cm;margin-left:0cm;font-size:24px;font-family:"Times New Roman",serif;font-weight:bold;'>
+        Acceptance Criteria</h2>
+    <ul style="list-style-type: disc;margin-left:26px;">
+        <li>Provide a single endpoint (<strong>/animals</strong>) built with the Spring Boot framework</li>
+        <li>It should accept a <strong>POST </strong>request via the <strong>attached Postman collection</strong></li>
+        <li>In addition, the endpoint should update a Google Firebase REST endpoint via a
+            <strong>PATCH </strong>request, supplying the same data
+        </li>
+        <li>Activity to be logged to a text file</li>
+    </ul>
+    <h2 style='margin-right:0cm;margin-left:0cm;font-size:24px;font-family:"Times New Roman",serif;font-weight:bold;'>
+        Enhancements (optional)</h2>
+    <ul style="list-style-type: disc;margin-left:26px;">
+        <li>Validation of request data</li>
+        <li>Javadocs</li>
+    </ul>
+    <h2 style='margin-right:0cm;margin-left:0cm;font-size:24px;font-family:"Times New Roman",serif;font-weight:bold;'>
+        Data
+    </h2>
+    <ul style="list-style-type: disc;margin-left:26px;">
+        <li>The existing Firebase dataset is visible at <a
+                href="https://eshepherd-challenge-default-rtdb.asia-southeast1.firebasedatabase.app/.json?print=pretty">https://eshepherd-challenge-default-rtdb.asia-southeast1.firebasedatabase.app/.json?print=pretty</a>.
+        </li>
+        <li>The attached Postman Collection has commands and global variables already setup, no need for you to edit
+            anything.</li>
+        <li>Import the collection and then start by initializing a new dataset for yourself via the &ldquo;Firebase API
+            /
+            <strong>create animals</strong>&rdquo; command. <br>This will save a new <code
+                style='font-family:"Courier New";'><span>"{{"name"}}"</span></code> for you as a global
+            variable, such that all subsequent commands will work.
+        </li>
+        <li>The other commands in the &ldquo;Firebase API&rdquo; folder are there if you need them, they use the
+            established
+            global variables</li>
+        <li>GET https://"{{"database"}}"/"{{"name"}}"".json &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // get
+            &quot;animals&quot;
+        </li>
+    </ul>
+    <pre
+        style='margin:0cm;font-size:13px;font-family:"Courier New";margin-left:36.0pt;'>PUT https://"{{"database"}}"/"{{"name"}}"".json           // &quot;reset animals&quot;</pre>
+    <ul style="list-style-type: disc;margin-left:26px;">
+        <li>You can <strong>test&nbsp;</strong>your own endpoint via &ldquo;Your API&rdquo;.</li>
+        <li>More information: <a href="https://firebase.google.com/docs/reference/rest/database">Firebase Realtime
+                Database
+                API Docs</a></li>
+    </ul>
+
+    <button><a href="/eShepherdClient/src/assets/Java eShepherd Challenge.postman_collection.json" target="_blank" 
+        download="Java eShepherd Challenge.postman_collection.json" style="text-decoration: none ;">DownLoad postman_collection</a></button>
+</div>

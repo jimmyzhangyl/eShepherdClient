@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "1580ba75-7d53-4d7e-b6d8-64e37cd763be",
+		"name": "Java eShepherd Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5182163"
+	},
+	"item": [
+		{
+			"name": "Firebase API",
+			"item": [
+				{
+					"name": "create animals",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.set('database', 'eshepherd-challenge-default-rtdb.asia-southeast1.firebasedatabase.app');",
+									"",
+									"for (i = 0; i < 5; i++)",
+									"{",
+									"    pm.environment.set(\"lat_\"+i, getRndInteger(850, 950));",
+									"    pm.environment.set(\"lon_\"+i, getRndInteger(100, 500));",
+									"}",
+									"",
+									"function getRndInteger(min, max) {",
+									"  return Math.floor(Math.random() * (max - min + 1) ) + min;",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Store response",
+									"var jsonData            = JSON.parse(responseBody);",
+									"",
+									"// Store in Postman",
+									"postman.setGlobalVariable(\"name\", jsonData.name);",
+									"",
+									"// Clean up variables",
+									"for (i = 0; i < 5; i++)",
+									"{",
+									"    pm.environment.unset(\"lat_\"+i);",
+									"    pm.environment.unset(\"lon_\"+i);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"animals\": [\n        {\n            \"name\": \"Max\",\n            \"months\": 14,\n            \"location\": {\n                \"lat\": -37.84{{lat_0}},\n                \"lon\": 145.07{{lon_0}}\n            }\n        },\n        {\n            \"name\": \"Muriel\",\n            \"months\": 32,\n            \"location\": {\n                \"lat\": -37.81{{lat_1}},\n                \"lon\": 145.04{{lon_1}}\n            }\n        },\n        {\n            \"name\": \"Mildred\",\n            \"months\": 32,\n            \"location\": {\n                \"lat\": -37.82{{lat_2}},\n                \"lon\": 145.05{{lon_2}}\n            }\n        },\n        {\n            \"name\": \"Mortimer\",\n            \"months\": 32,\n            \"location\": {\n                \"lat\": -37.82{{lat_3}},\n                \"lon\": 145.06{{lon_3}}\n            }\n        },\n        {\n            \"name\": \"Melville\",\n            \"months\": 32,\n            \"location\": {\n                \"lat\": -37.43{{lat_4}},\n                \"lon\": 145.45{{lon_4}}\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{database}}/.json",
+							"protocol": "https",
+							"host": [
+								"{{database}}"
+							],
+							"path": [
+								".json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "animals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{database}}/{{name}}.json",
+							"protocol": "https",
+							"host": [
+								"{{database}}"
+							],
+							"path": [
+								"{{name}}.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset animals",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"for (i = 0; i < 5; i++)",
+									"{",
+									"    pm.environment.set(\"lat_\"+i, getRndInteger(850, 950));",
+									"    pm.environment.set(\"lon_\"+i, getRndInteger(100, 500));",
+									"}",
+									"",
+									"function getRndInteger(min, max) {",
+									"  return Math.floor(Math.random() * (max - min + 1) ) + min;",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Clean up variables",
+									"for (i = 0; i < 5; i++)",
+									"{",
+									"    pm.environment.unset(\"lat_\"+i);",
+									"    pm.environment.unset(\"lon_\"+i);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"animals\": [\n        {\n            \"name\": \"Max\",\n            \"months\": 14,\n            \"location\": {\n                \"lat\": -37.84{{lat_0}},\n                \"lon\": 145.07{{lon_0}}\n            }\n        },\n        {\n            \"name\": \"Muriel\",\n            \"months\": 32,\n            \"location\": {\n                \"lat\": -37.81{{lat_1}},\n                \"lon\": 145.04{{lon_1}}\n            }\n        },\n        {\n            \"name\": \"Mildred\",\n            \"months\": 32,\n            \"location\": {\n                \"lat\": -37.82{{lat_2}},\n                \"lon\": 145.05{{lon_2}}\n            }\n        },\n        {\n            \"name\": \"Mortimer\",\n            \"months\": 32,\n            \"location\": {\n                \"lat\": -37.82{{lat_3}},\n                \"lon\": 145.06{{lon_3}}\n            }\n        },\n        {\n            \"name\": \"Melville\",\n            \"months\": 32,\n            \"location\": {\n                \"lat\": -37.43{{lat_4}},\n                \"lon\": 145.45{{lon_4}}\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{database}}/{{name}}.json",
+							"protocol": "https",
+							"host": [
+								"{{database}}"
+							],
+							"path": [
+								"{{name}}.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Your API",
+			"item": [
+				{
+					"name": "animals",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"for (i = 0; i < 5; i++)",
+									"{",
+									"    pm.environment.set(\"lat_\"+i, getRndInteger(850, 950));",
+									"    pm.environment.set(\"lon_\"+i, getRndInteger(100, 500));",
+									"}",
+									"",
+									"function getRndInteger(min, max) {",
+									"  return Math.floor(Math.random() * (max - min + 1) ) + min;",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"for (i = 0; i < 5; i++)",
+									"{",
+									"    pm.environment.unset(\"lat_\"+i);",
+									"    pm.environment.unset(\"lon_\"+i);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"0\": {\n        \"name\": \"Max\",\n        \"months\": 14,\n        \"location\": {\n            \"lat\": -37.84{{lat_0}},\n            \"lon\": 145.07{{lon_0}}\n        }\n    },\n    \"1\": {\n        \"name\": \"Muriel\",\n        \"months\": 32,\n        \"location\": {\n            \"lat\": -37.81{{lat_1}},\n            \"lon\": 145.04{{lon_1}}\n        }\n    },\n    \"2\": {\n        \"name\": \"Mildred\",\n        \"months\": 32,\n        \"location\": {\n            \"lat\": -37.82{{lat_2}},\n            \"lon\": 145.05{{lon_2}}\n        }\n    },\n    \"3\": {\n        \"name\": \"Mortimer\",\n        \"months\": 32,\n        \"location\": {\n            \"lat\": -37.82{{lat_3}},\n            \"lon\": 145.06{{lon_3}}\n        }\n    },\n    \"4\": {\n        \"name\": \"Melville\",\n        \"months\": 32,\n        \"location\": {\n            \"lat\": -37.43{{lat_4}},\n            \"lon\": 145.45{{lon_4}}\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/animals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"animals"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
