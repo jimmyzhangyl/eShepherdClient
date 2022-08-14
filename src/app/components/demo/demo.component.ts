@@ -4,6 +4,7 @@ import { AnimalService } from 'src/app/services/animal.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MsgDialogComponent } from '../msg-dialog/msg-dialog.component';
 import { AnimalDialogComponent } from '../animal-dialog/animal-dialog.component';
+import { AnimalGroupDialogComponent } from '../animal-group-dialog/animal-group-dialog.component';
 
 
 @Component({
@@ -57,6 +58,10 @@ export class DemoComponent implements OnInit {
     //   this.textAreaValue = "";
     //   this.openMsgDialog();
     // }, error => this.msg = "Update Data: Failed!")
+  }
+
+  handleGroupUpdateButton(){
+    this.dialog.open( AnimalGroupDialogComponent, {data: this.animals})
   }
 
   imgPath(name: string): string {

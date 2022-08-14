@@ -1,0 +1,47 @@
+<div>
+    <textarea #myText>
+        {
+            "0": {
+                "name": "Max",
+                "months": 14,
+                "location": {
+                    "lat": -37.84,
+                    "lon": 145.07
+                }
+            },
+            "1": {
+                "name": "Muriel",
+                "months": 32,
+                "location": {
+                    "lat": -37.81,
+                    "lon": 145.04
+                }
+            },
+            "2": {
+                "name": "Mildred",
+                "months": 32,
+                "location": {
+                    "lat": -37.82,
+                    "lon": 145.05
+                }
+            },
+            "3": {
+                "name": "Mortimer",
+                "months": 32,
+                "location": {
+                    "lat": -37.82,
+                    "lon": 145.06
+                }
+            },
+            "4": {
+                "name": "Melville",
+                "months": 32,
+                "location": {
+                    "lat": -37.43,
+                    "lon": 145.45
+                }
+            }
+        }
+</textarea>
+    <button (click)="handleSubmitButton(myText.value)">Submit</button>
+</div>

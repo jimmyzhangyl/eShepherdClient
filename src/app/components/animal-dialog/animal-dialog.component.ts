@@ -8,15 +8,14 @@ import { Animal } from 'src/app/interfaces/animal';
   styleUrls: ['./animal-dialog.component.css']
 })
 export class AnimalDialogComponent implements OnInit {
-  formData !: Animal;
   constructor(public dialogRef: MatDialogRef<AnimalDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public animal: Animal) { }
 
   ngOnInit(): void {
   }
-
-  handleFormSubmit(formData:Animal){
-    console.log(JSON.stringify(formData));
+  
+  handleFormSubmit(formValue: Animal){
+    console.log(formValue.name);
   }
 
 }

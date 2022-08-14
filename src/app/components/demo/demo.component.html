@@ -15,7 +15,7 @@
         <button mat-raised-button color="primary" (click)="handleResetButton()">Reset</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" >Group Update</button>
+        <button mat-raised-button color="primary" (click)="handleGroupUpdateButton()">Group Update</button>
     </mat-grid-tile>
 </mat-grid-list>
 
@@ -32,9 +32,9 @@
             <mat-card-content>
                 Location: {{animal.location | json}}
             </mat-card-content>
-            <mat-card-actions>
+            <!-- <mat-card-actions>
                 <button mat-button (click)="handleUpdateButton(animal)">UPDATE</button>
-            </mat-card-actions>
+            </mat-card-actions> -->
         </mat-card>
     </div>
 </div>

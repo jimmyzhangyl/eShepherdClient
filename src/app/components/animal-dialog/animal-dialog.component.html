@@ -3,11 +3,28 @@
     <p>
         <mat-form-field appearance="fill">
             <mat-label>Animal Name</mat-label>
-            <input matInput placeholder="Placeholder" value={{animal.name}} required>
-            <mat-hint>Hint</mat-hint>
+            <input matInput placeholder={{animal.name}} value={{animal.name}}  name = "name" required ngModel>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Animal Age</mat-label>
+            <input matInput placeholder={{animal.months}} value={{animal.months}} name = "age" required ngModel>
+            <mat-hint>Hint: range[0,300]</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>Animal Location<br>
+        <mat-form-field appearance="fill">
+            <mat-label>Lat</mat-label>
+            <input matInput placeholder={{animal.location.lat}} value={{animal.location.lat}} name = "lat" required ngModel>
+            <mat-hint>Hint: range[-90,90]</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Lon</mat-label>
+            <input matInput placeholder={{animal.location.lon}} value={{animal.location.lon}} name = "lon" required ngModel>
+            <mat-hint>Hint: range[-180,180]</mat-hint>
         </mat-form-field>
     </p>
 
     <button type="submit">Submit</button>
-
 </form>

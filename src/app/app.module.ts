@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { MsgDialogComponent } from './components/msg-dialog/msg-dialog.component';
 import { AnimalDialogComponent } from './components/animal-dialog/animal-dialog.component';
+import { AnimalGroupDialogComponent } from './components/animal-group-dialog/animal-group-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { AnimalDialogComponent } from './components/animal-dialog/animal-dialog.
     DesignComponent,
     HomeComponent,
     MsgDialogComponent,
-    AnimalDialogComponent
+    AnimalDialogComponent,
+    AnimalGroupDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { AnimalDialogComponent } from './components/animal-dialog/animal-dialog.
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'demo', component: DemoComponent },
